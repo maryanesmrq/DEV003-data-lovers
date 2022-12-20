@@ -1,289 +1,10 @@
 import { search, order, filterByGeneration, filterByType } from '../src/data.js';
 import { data } from './testing-data'
 
-// Se crea un array que contenga
-
-const toEqual3 = [
-  {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
-  },
-];
-
-const toEqual4 = [
-  {
-    num: '024',
-    name: 'arbok',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'poison',
-    ],
-  },
-  {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
-  },
-  {
-    num: '005',
-    name: 'charmeleon',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fire',
-    ],
-  },
-  {
-    num: '173',
-    name: 'cleffa',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fairy',
-    ],
-  },
-  {
-    num: '200',
-    name: 'misdreavus',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'ghost',
-    ],
-  },
-  {
-    num: '060',
-    name: 'poliwag',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'water',
-    ],
-  },
-];
-
-const toEqual5 = [
-  {
-    num: '060',
-    name: 'poliwag',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'water',
-    ],
-  },
-  {
-    num: '200',
-    name: 'misdreavus',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'ghost',
-    ],
-  },
-  {
-    num: '173',
-    name: 'cleffa',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fairy',
-    ],
-  },
-  {
-    num: '005',
-    name: 'charmeleon',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fire',
-    ],
-  },
-  {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
-  },
-  {
-    num: '024',
-    name: 'arbok',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'poison',
-    ],
-  },
-];
-
-const toEqual6 = [
-  {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
-  },
-  {
-    num: '005',
-    name: 'charmeleon',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fire',
-    ],
-  },
-  {
-    num: '024',
-    name: 'arbok',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'poison',
-    ],
-  },
-  {
-    num: '060',
-    name: 'poliwag',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'water',
-    ],
-  },
-  {
-    num: '173',
-    name: 'cleffa',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fairy',
-    ],
-  },
-  {
-    num: '200',
-    name: 'misdreavus',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'ghost',
-    ],
-  },
-];
-const toEqual7 = [
-  {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
-  },
-  {
-    num: '024',
-    name: 'arbok',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'poison',
-    ],
-  },
-];
-
-
-
 describe('filterByGeneration', () => {
   it('is a function', () => {
     expect(typeof filterByGeneration).toBe('function');
   });
-
-  it('should return the right amount of items in array',()=>{
-    expect(filterByGeneration(data, 'johto').length).toEqual(2)
-  })
 
   it('should return an empty array when search its not matching whith the entered letters', () => {
     expect(filterByGeneration(data, 'xxwe')).toEqual([]);
@@ -291,6 +12,7 @@ describe('filterByGeneration', () => {
 
   it('should return two specific pokemons', () => {
     const searchResult = filterByGeneration(data, 'johto')
+    expect(searchResult.length).toEqual(2)
     expect(searchResult[0].name).toEqual('cleffa');
     expect(searchResult[1].name).toEqual('misdreavus');
   });
@@ -314,9 +36,12 @@ describe('search', () => {
     expect(search(data, 'xxwe')).toEqual([]);
   });
 
-  it('should return a pokemon when the first letters are matching', () => {
-    expect(search(data, 'bul')).toEqual(toEqual3);
+  it('should return one specific pokemon for query "bul"', () => {
+    const searchResult = search(data, 'bul')
+    expect(searchResult.length).toEqual(1)
+    expect(searchResult[0].name).toEqual('bulbasaur');
   });
+
 });
 
 // Alphabetical order
@@ -325,29 +50,55 @@ describe('order', () => {
     expect(typeof order).toBe('function');
   });
 
-  
-  it('should return a complete array from A to Z', () => {
-    expect(order(data, 'A-Z')).toEqual(toEqual4);
+  it('should return six specific pokemons in ascendent order for case "A-Z"', () => {
+    const searchResult = order(data, 'A-Z')
+    expect(searchResult.length).toEqual(6)
+    expect(searchResult[0].name).toEqual('arbok'); 
+    expect(searchResult[1].name).toEqual('bulbasaur'); 
+    expect(searchResult[2].name).toEqual('charmeleon'); 
+    expect(searchResult[3].name).toEqual('cleffa'); 
+    expect(searchResult[4].name).toEqual('misdreavus'); 
+    expect(searchResult[5].name).toEqual('poliwag'); 
   });
 
-  it('should return a complete array from Z to A', () => {
-    expect(order(data, 'Z-A')).toEqual(toEqual5);
+  it('should return the same array for both "A-Z" case and "default" case', () => {
+    const resultAZ = order(data, 'A-Z')
+    const resultDefault = order(data, 'default')
+    expect(resultAZ).toEqual(resultDefault);
   });
 
-  it('should return an upward complete ordered array', () => {
-    expect(order(data, 'default')).toEqual(toEqual6);
+  it('should return a the same array but reversed for cases "A-Z" and "Z-A"', () => {
+    const resultAZ = order(data, 'A-Z')
+    const resultZA = order(data, 'Z-A')
+    expect(resultAZ).toEqual(resultZA.reverse());
   });
+
 });
 
 // Filter by type
 describe('filterByType', () => {
+
   it('is a function', () => {
     expect(typeof filterByType).toBe('function');
   });
 
-  it('should return an array with same-type-pokemons', () => {
-    expect(filterByType(data, 'poison')).toEqual(toEqual7);
+  it('should return an empty array when search its not matching whith the entered letters', () => {
+    expect(filterByType(data, 'xxwe')).toEqual([]);
   });
-});
 
-// eliminar toEqual
+  it('should return two specific pokemons', () => {
+    const searchResult = filterByType(data, 'poison')
+    expect(searchResult.length).toEqual(2)
+    expect(searchResult[0].name).toEqual('arbok');
+    expect(searchResult[1].name).toEqual('bulbasaur');
+  });
+
+  it('should have all returned pokemons be poison type',()=>{
+    const searchResult = filterByType(data, 'poison')
+    const poisonTypeFound = searchResult.map(el => el.type.includes('poison'))
+    const onlyUnique = poisonTypeFound.filter((value, index, self) => {
+      return self.indexOf(value) === index;
+    })
+    expect(onlyUnique).toEqual([true]);
+  })
+});

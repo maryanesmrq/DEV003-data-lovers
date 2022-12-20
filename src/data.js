@@ -16,25 +16,10 @@ export const filterByType = (data, typeChose) => {
   )
 }
 
-
-
 export const order = (data, parameter) => {
-  let newArray = [];
-  // Orden alfabético ascendiente y descendiente
-  const sortArray = data.sort((a, b) => {
-    return a.name > b.name ? 1 : -1
-  });
-  if (parameter === 'A-Z') {
-    newArray = sortArray;
-  } else if (parameter === 'Z-A') {
-    newArray = sortArray.reverse();
-    // Orden por defecto
-  } else {
-    newArray = data.sort((a, b) => {
-      return a.name > b.name ? 1 : -1
-    });
-  }
-  return newArray;
+  // Lista en orden ascendente
+  const sortedArray = data.sort((a, b) => a.name > b.name ? 1 : -1 );
+  return parameter === 'Z-A' ? sortedArray.reverse() : sortedArray
 };
 
     
