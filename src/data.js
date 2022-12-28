@@ -17,9 +17,12 @@ export const filterByType = (data, typeChose) => {
 }
 
 export const order = (data, parameter) => {
-  // Lista en orden ascendente
-  const sortedArray = data.sort((a, b) => a.name > b.name ? 1 : -1 );
-  return parameter === 'Z-A' ? sortedArray.reverse() : sortedArray
+  if(parameter == 'A-Z' || parameter == 'Z-A'){
+    const sortedArray = data.slice().sort((a, b) => a.name > b.name ? 1 : -1 );
+    return parameter === 'Z-A' ? sortedArray.reverse() : sortedArray
+  } else {
+    return data
+  }
 };
 
     

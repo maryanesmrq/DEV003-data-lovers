@@ -2,11 +2,86 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <div id="root"></div>
+    
+          <p>PokeCHUY</p>
+        </div>
+      </div>
+      <nav >
+        <div>
+          <ul>
+            <li id="home">
+              <span>Home</span>
+            </li>
+              <input type="checkbox" id="filter" >
+              
+              <label for="filter">
+                <span>Filter</span>
+              </label>
+            </li>
+          </ul>
+          <div>
+            <input id="filter-search" type="search" placeholder="Type here">
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <aside >
+        <ul >
+          <li id="all-pokemons">All Chuys</li>
+          <input type="checkbox"  id="filter-by-type">
+          <label for="filter-by-type">
+            <li >Filter by type <span></span></li>
+          </label>
+          <section >
+            <ul>
+              <li id="ghost">Ghost</li>
+              <li id="psychic">Psychic</li>
+              <li id="normal">Normal</li>
+              <li id="fighting">Fighting</li>
+              <li id="poison">Poison</li>
+              <li id="bug">Bug</li>
+              <li id="flying">Flying</li>
+              <li id="dark">Dark</li>
+              <li id="fairy">Fairy</li>
+            </ul>            
+            <ul>
+              <li id="water">Water</li>
+              <li id="fire">Fire</li>
+              <li id="grass">Grass</li>
+              <li id="ground">Ground</li>
+              <li id="rock">Rock</li>
+              <li id="steel">Steel</li>
+              <li id="ice">Ice</li>
+              <li id="electric">Electric</li>
+              <li id="dragon">Dragon</li>
+            </ul>
+          </section> 
+        </ul>
+      </aside>
+     
+      <main> 
+        
+        
+        <section >
+          <p>Sort</p>
+          <select id="selection" value ="Sort">
+            <option value="default">Default</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+          </select>
+        </section>
+        <section></section>
+
+      </main>
+    </section>
+      
     <script src="main.js" type="module"></script>
   </body>
 </html>
