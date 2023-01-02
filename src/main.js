@@ -75,3 +75,4 @@ const setupOrderListEvent = (selectionInput,sectionContent,pokemonList) => {
 }
 
 
+
