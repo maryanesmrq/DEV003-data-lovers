@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
-    
+  <body class="container">
           <p>PokeCHUY</p>
-        </div>
-      </div>
       <nav >
         <div>
           <ul>
@@ -23,53 +20,51 @@
               <label for="filter">
                 <span>Filter</span>
               </label>
-            </li>
+            
           </ul>
-          <div>
+          <div class="search-section">
             <input id="filter-search" type="search" placeholder="Type here">
           </div>
         </div>
       </nav>
-    </header>
-    <section>
-      <aside >
-        <ul >
-          <li id="all-pokemons">All Chuys</li>
-          <input type="checkbox"  id="filter-by-type">
+    <section class="general-container">
+      <aside class="hide-f ">
+        <ul class="filter-menu">
+          <li class="li-filter" id="all-pokemons">All pokémons</li>
+          <input type="checkbox" class="hide-f">
           <label for="filter-by-type">
-            <li >Filter by type <span></span></li>
+            <li >Filter by type </li>
           </label>
-          <section >
-            <ul>
-              <li id="ghost">Ghost</li>
-              <li id="psychic">Psychic</li>
-              <li id="normal">Normal</li>
-              <li id="fighting">Fighting</li>
-              <li id="poison">Poison</li>
-              <li id="bug">Bug</li>
-              <li id="flying">Flying</li>
-              <li id="dark">Dark</li>
-              <li id="fairy">Fairy</li>
-            </ul>            
-            <ul>
-              <li id="water">Water</li>
-              <li id="fire">Fire</li>
-              <li id="grass">Grass</li>
-              <li id="ground">Ground</li>
-              <li id="rock">Rock</li>
-              <li id="steel">Steel</li>
-              <li id="ice">Ice</li>
-              <li id="electric">Electric</li>
-              <li id="dragon">Dragon</li>
-            </ul>
+          <section class="sub-menu hide-f">
+            <select id = 'filter-by-type'>
+              <option>Default</option>
+              <option id="ghost">Ghost</option>
+              <option id="psychic">Psychic</option>
+              <option id="normal">Normal</option>
+              <option id="fighting">Fighting</option>
+              <option id="poison">Poison</option>
+              <option id="bug">Bug</option>
+              <option id="flying">Flying</option>
+              <option id="dark">Dark</option>
+              <option id="fairy">Fairy</option>
+              <option id="water">Water</option>
+              <option id="fire">Fire</option>
+              <option id="grass">Grass</option>
+              <option id="ground">Ground</option>
+              <option id="rock">Rock</option>
+              <option id="steel">Steel</option>
+              <option id="ice">Ice</option>
+              <option id="electric">Electric</option>
+              <option id="dragon">Dragon</option>
+            </select>
           </section> 
         </ul>
       </aside>
      
-      <main> 
+      <main class="center"> 
         
         
-        <section >
+        <section class="sort-container">
           <p>Sort</p>
           <select id="selection" value ="Sort">
             <option value="default">Default</option>
@@ -77,10 +72,15 @@
             <option value="Z-A">Z-A</option>
           </select>
         </section>
-        <section></section>
+        <section class="content center"></section>
+        <div id="modal"></div> 
 
+        <div class="go-top-container">
+          <span></span>
+        </div>
       </main>
     </section>
+      
       
     <script src="main.js" type="module"></script>
   </body>
