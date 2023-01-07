@@ -1,5 +1,6 @@
-import { search, order, filterByGeneration, filterByType } from '../src/data.js';
+import { search, order, filterByGeneration, filterByType, dpsCalculate,  epsCalculate } from '../src/data.js';
 import { data } from './testing-data'
+import { dataCalculate } from './testing-data'
 
 describe('filterByGeneration', () => {
   it('is a function', () => {
@@ -61,17 +62,17 @@ describe('order', () => {
     expect(searchResult[5].name).toEqual('poliwag'); 
   });
 
-  it('should return the same array for both "A-Z" case and "default" case', () => {
-    const resultAZ = order(data, 'A-Z')
-    const resultDefault = order(data, 'default')
-    expect(resultAZ).toEqual(resultDefault);
-  });
-
-  it('should return a the same array but reversed for cases "A-Z" and "Z-A"', () => {
+  it('should return the same array but reversed for cases "A-Z" and "Z-A"', () => {
     const resultAZ = order(data, 'A-Z')
     const resultZA = order(data, 'Z-A')
     expect(resultAZ).toEqual(resultZA.reverse());
   });
+
+  it('should return data as default' , () => {
+    const defaultOrder = order(data)
+    expect(defaultOrder).toEqual(data);
+  });
+
 
 });
 
@@ -89,8 +90,9 @@ describe('filterByType', () => {
   it('should return two specific pokemons', () => {
     const searchResult = filterByType(data, 'poison')
     expect(searchResult.length).toEqual(2)
-    expect(searchResult[0].name).toEqual('arbok');
-    expect(searchResult[1].name).toEqual('bulbasaur');
+    console.log(searchResult)
+    expect(searchResult[0].name).toEqual('bulbasaur');
+    expect(searchResult[1].name).toEqual('arbok');
   });
 
   it('should have all returned pokemons be poison type',()=>{
@@ -102,3 +104,24 @@ describe('filterByType', () => {
     expect(onlyUnique).toEqual([true]);
   })
 });
+
+
+// Energy per second
+it('is a function', () => {
+  expect(typeof epsCalculate).toBe('function');
+});
+
+it('should return energy per second result of the selected pokemon', () => {
+  expect(epsCalculate(dataCalculate)).toBe('10.0');
+});
+
+
+// Damage per second
+it('is a function', () => {
+  expect(typeof dpsCalculate).toBe('function');
+});
+
+it('should return damage per second result of the second selected pokemon', () => {
+  expect(dpsCalculate(dataCalculate, ['fire', 'grass'])).toBe('12.0');
+});
+

@@ -71,5 +71,14 @@ export const data = [
     type: [
       'fire',
     ],
+    
   },
 ];
+
+export const dataCalculate = {
+  name: 'ember',
+  type: 'fire',
+  'base-damage': '10',
+  energy: '10',
+  'move-duration-seg': '1',
+};
