@@ -1,17 +1,13 @@
 import { filterByGeneration, search, order, dpsCalculate, epsCalculate } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
-// Ser más específica con lo que se realiza y cambiar el nombre de la función 
-// Cambiar el nombre a todas las que generen html -pokemonCardsHtml -modalHtml - Esto para poder tener mejor entendimiento de mi código
-// Cambiar el nombre a la variable modalHtml respectivamente 
-// Sacar el innerhtml de modal-attack
-// Preguntar a coaches si puedo tener mis funciones dentro de diferentes carpetas para un código más ordenado
-// Ordenar mi código e identar (revisar si tengo console.log y borrar lo que no se esté utilizando)
-// Agregar comentarios
+// Ser más específica con lo que se realiza y cambiar el nombre de la función //
+// Preguntar a coaches si puedo tener mis funciones dentro de diferentes carpetas para un código más ordenado //
+// Agregar comentarios //
 
 
 
-const pokemonCards = (allPokemons) => {
+const pokemonCardsHtml = (allPokemons) => {
   let dataPokemon = '';
   allPokemons.forEach((eachPokemon) => {
     const pokemon = `
@@ -29,7 +25,7 @@ const pokemonCards = (allPokemons) => {
   return dataPokemon;
 };
 
-const modalhtml = (pokemon) => {
+const modalFeatureslHtml = (pokemon) => {
   return `
   <p id="modal_close">x</p>
 <section class="cards">
@@ -71,43 +67,9 @@ const modalhtml = (pokemon) => {
   `
 }
 
-// Ser más específica con la función GENERATION // updateGenerationList
-// Obteniendo todos los pokemones y separando por generación
-const updateGenerationList = (pokemonList, sectionContent) => {
-  sectionContent.innerHTML = '';
-  // Dejar de mostrar el contenedor del filtrado
-  //sectionContent.classList.remove('show');
-  // Creando secc Kanto
-  //sectionContent.appendChild(generation('I', 'Kanto'));
-  const cardsContainer = document.createElement('div');
-  cardsContainer.className = 'cards-distribution';
-  // Creando e insertando cards de pokemones
-  cardsContainer.innerHTML += pokemonCards(pokemonList);
-  sectionContent.appendChild(cardsContainer);
-  const buttonFeaturesArray = Array.from(document.getElementsByClassName("button-features"))
-  const buttonAttackArray = Array.from(document.getElementsByClassName("button-attacks"))
-  buttonFeaturesArray.forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      const pokemon = data.pokemon.find(function (pokemon) {
-        return pokemon.name === event.target.name
-      })
-      const modal = document.getElementById('modal')
-      modal.style.display = 'block'
-      modal.innerHTML = modalhtml(pokemon)
-      document.getElementById('modal_close').addEventListener('click', function () {
-        document.getElementById('modal').style.display = 'none'
-      })
-    })
-  })
-  buttonAttackArray.forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      const pokemon = data.pokemon.find(function (pokemon) {
-        return pokemon.name === event.target.name
-      })
-      const modal = document.getElementById('modal')
-      modal.style.display = 'block'
-      modal.innerHTML = `
-      <p id="modal_close">x</p>
+const modalAttacklHtml = (pokemon) => {
+  return `
+  <p id="modal_close">x</p>
       <section class="cards">
         <section class="pokemon-name2 red-bg">${pokemon.num} - ${pokemon.name}</section>
         <section class="info-container">
@@ -178,10 +140,55 @@ const updateGenerationList = (pokemonList, sectionContent) => {
       </tr>
       `
   })}
-
-    </tbody>
       </table>
-      `
+
+  
+  `
+
+}
+
+// Ser más específica con la función GENERATION // updateGenerationList
+// Obteniendo todos los pokemones y separando por generación
+const updateGenerationList = (pokemonList, sectionContent) => {
+  sectionContent.innerHTML = '';
+  // Dejar de mostrar el contenedor del filtrado
+  //sectionContent.classList.remove('show');
+  // Creando secc Kanto
+  //sectionContent.appendChild(generation('I', 'Kanto'));
+  const cardsContainer = document.createElement('div');
+  cardsContainer.className = 'cards-distribution';
+  // Creando e insertando cards de pokemones
+  cardsContainer.innerHTML += pokemonCardsHtml(pokemonList);
+  sectionContent.appendChild(cardsContainer);
+
+
+  const buttonFeaturesArray = Array.from(document.getElementsByClassName("button-features"))
+  const buttonAttackArray = Array.from(document.getElementsByClassName("button-attacks"))
+  buttonFeaturesArray.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      const pokemon = data.pokemon.find(function (pokemon) {
+        return pokemon.name === event.target.name
+      })
+
+      const modal = document.getElementById('modal')
+      modal.style.display = 'block'
+      modal.innerHTML = modalFeatureslHtml(pokemon) 
+      document.getElementById('modal_close').addEventListener('click', function () {
+        document.getElementById('modal').style.display = 'none'
+      })
+    })
+  })
+
+  buttonAttackArray.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      const pokemon = data.pokemon.find(function (pokemon) {
+        return pokemon.name === event.target.name
+      })
+
+
+      const modal = document.getElementById('modal')
+      modal.style.display = 'block'
+      modal.innerHTML =  modalAttacklHtml(pokemon) 
       document.getElementById('modal_close').addEventListener('click', function () {
         document.getElementById('modal').style.display = 'none'
       })
@@ -199,6 +206,8 @@ window.addEventListener('load', () => {
   setupSearchInputEvent(searchInput, sectionContent, data.pokemon)
   const selectionInput = document.querySelector('#selection');
   setupOrderListEvent(selectionInput, sectionContent, data.pokemon)
+
+
   const filter = document.getElementById('filter-by-type')
   filter.addEventListener('change', function (event) {
     const selectedTypePokemons = data.pokemon.filter(function (pokemon) {
