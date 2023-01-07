@@ -21,7 +21,7 @@ export const order = (data, parameter) => {
   if(parameter === 'A-Z' || parameter === 'Z-A'){
     const sortedArray = data.slice().sort((a, b) => a.name > b.name ? 1 : -1 );
     return parameter === 'Z-A' ? sortedArray.reverse() : sortedArray
-  } else {
+  } else { 
     return data
   }
 };

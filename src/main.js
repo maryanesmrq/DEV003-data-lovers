@@ -1,7 +1,15 @@
-import { filterByGeneration, search, order, filterByType, dpsCalculate, epsCalculate} from './data.js';
+import { filterByGeneration, search, order, dpsCalculate, epsCalculate } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
-// Ser más específica con lo que se realiza y cambiar el nombre de la función //pokemonCardsHTML
+// Ser más específica con lo que se realiza y cambiar el nombre de la función 
+// Cambiar el nombre a todas las que generen html -pokemonCardsHtml -modalHtml - Esto para poder tener mejor entendimiento de mi código
+// Cambiar el nombre a la variable modalHtml respectivamente 
+// Sacar el innerhtml de modal-attack
+// Preguntar a coaches si puedo tener mis funciones dentro de diferentes carpetas para un código más ordenado
+// Ordenar mi código e identar (revisar si tengo console.log y borrar lo que no se esté utilizando)
+// Agregar comentarios
+
+
 
 const pokemonCards = (allPokemons) => {
   let dataPokemon = '';
@@ -21,11 +29,51 @@ const pokemonCards = (allPokemons) => {
   return dataPokemon;
 };
 
-
+const modalhtml = (pokemon) => {
+  return `
+  <p id="modal_close">x</p>
+<section class="cards">
+  <section class="pokemon-name2 green-bg">${pokemon.num} - ${pokemon.name}</section>
+  <section class="info-container">
+    <div class="sub-container-img">
+      <p class="subtitle2">${pokemon['pokemon-rarity']}</p>
+      <div class="pokemon-screen green-b">
+        <img class="screen-img" src="${pokemon.img}">
+      </div>
+    </div>
+    <div class="sub-container-text">
+      <p class="subtitle2">generation</p>
+      <p class="p-bottom">N° ${pokemon.generation.num.slice(10).toUpperCase()} - ${pokemon.generation.name}</p>
+      <p class="subtitle2">type</p>
+      <p class="p-bottom">${pokemon.type.join()}</p>
+      <p class="subtitle2">size</p>
+      <p >Height: ${pokemon.size.height}</p>
+      <p >Weight: ${pokemon.size.weight}</p>
+    </div>
+  </section>
+  <section class="info-container">
+    <div class="column">
+      <p class="subtitle2 h-stat">Encounter</p>
+      <div class="number-data">
+        <p>Base flee rate</p>
+        <p class="num-cel">${(pokemon.encounter['base-flee-rate'] * 100).toFixed(1)}%</p>
+      </div>
+      <div class="number-data">
+        <p>Base capture rate</p>
+        <p class="num-cel">${(pokemon.encounter['base-capture-rate'] * 100).toFixed(1)}%</p>
+      </div>
+    </div>
+    <div class="column">
+      <p class="subtitle2 h-stat">Spawn chance</p>
+      <p class="num-cel">${(pokemon['spawn-chance'] * 100).toFixed(2)}%</p>
+    </div>
+  
+  `
+}
 
 // Ser más específica con la función GENERATION // updateGenerationList
 // Obteniendo todos los pokemones y separando por generación
-const updateGenerationList = (pokemonList,sectionContent) => {
+const updateGenerationList = (pokemonList, sectionContent) => {
   sectionContent.innerHTML = '';
   // Dejar de mostrar el contenedor del filtrado
   //sectionContent.classList.remove('show');
@@ -36,67 +84,28 @@ const updateGenerationList = (pokemonList,sectionContent) => {
   // Creando e insertando cards de pokemones
   cardsContainer.innerHTML += pokemonCards(pokemonList);
   sectionContent.appendChild(cardsContainer);
-  let buttonFeaturesArray = Array.from(document.getElementsByClassName("button-features"))
-  let buttonAttackArray = Array.from(document.getElementsByClassName("button-attacks"))
-  buttonFeaturesArray.forEach(function(button){
-    button.addEventListener('click',function(event){
-      console.log(data)
-      let pokemon = data.pokemon.find(function(pokemon){
+  const buttonFeaturesArray = Array.from(document.getElementsByClassName("button-features"))
+  const buttonAttackArray = Array.from(document.getElementsByClassName("button-attacks"))
+  buttonFeaturesArray.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      const pokemon = data.pokemon.find(function (pokemon) {
         return pokemon.name === event.target.name
       })
-      let modal = document.getElementById('modal')
-      modal.style.display='block'
-      modal.innerHTML = `
-      <p id="modal_close">x</p>
-    <section class="cards">
-      <section class="pokemon-name2 green-bg">${pokemon.num} - ${pokemon.name}</section>
-      <section class="info-container">
-        <div class="sub-container-img">
-          <p class="subtitle2">${pokemon['pokemon-rarity']}</p>
-          <div class="pokemon-screen green-b">
-            <img class="screen-img" src="${pokemon.img}">
-          </div>
-        </div>
-        <div class="sub-container-text">
-          <p class="subtitle2">generation</p>
-          <p class="p-bottom">N° ${pokemon.generation.num.slice(10).toUpperCase()} - ${pokemon.generation.name}</p>
-          <p class="subtitle2">type</p>
-          <p class="p-bottom">${pokemon.type.join()}</p>
-          <p class="subtitle2">size</p>
-          <p >Height: ${pokemon.size.height}</p>
-          <p >Weight: ${pokemon.size.weight}</p>
-        </div>
-      </section>
-      <section class="info-container">
-        <div class="column">
-          <p class="subtitle2 h-stat">Encounter</p>
-          <div class="number-data">
-            <p>Base flee rate</p>
-            <p class="num-cel">${(pokemon.encounter['base-flee-rate'] * 100).toFixed(1)}%</p>
-          </div>
-          <div class="number-data">
-            <p>Base capture rate</p>
-            <p class="num-cel">${(pokemon.encounter['base-capture-rate'] * 100).toFixed(1)}%</p>
-          </div>
-        </div>
-        <div class="column">
-          <p class="subtitle2 h-stat">Spawn chance</p>
-          <p class="num-cel">${(pokemon['spawn-chance'] * 100).toFixed(2)}%</p>
-        </div>
-      
-      `
-      document.getElementById('modal_close').addEventListener('click', function(){
-        document.getElementById('modal').style.display='none'
+      const modal = document.getElementById('modal')
+      modal.style.display = 'block'
+      modal.innerHTML = modalhtml(pokemon)
+      document.getElementById('modal_close').addEventListener('click', function () {
+        document.getElementById('modal').style.display = 'none'
       })
     })
   })
-  buttonAttackArray.forEach(function(button){
-button.addEventListener('click',function(event){
-  let pokemon = data.pokemon.find(function(pokemon){
-    return pokemon.name === event.target.name
-  })
-  let modal = document.getElementById('modal')
-      modal.style.display='block'
+  buttonAttackArray.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      const pokemon = data.pokemon.find(function (pokemon) {
+        return pokemon.name === event.target.name
+      })
+      const modal = document.getElementById('modal')
+      modal.style.display = 'block'
       modal.innerHTML = `
       <p id="modal_close">x</p>
       <section class="cards">
@@ -142,8 +151,8 @@ button.addEventListener('click',function(event){
     </tr>
   </thead> 
     <tbody>
-    ${pokemon['special-attack'].map(function(attack){
-      return `
+    ${pokemon['special-attack'].map(function (attack) {
+    return `
       <tr>
       <td>
       ${attack.name}
@@ -168,16 +177,15 @@ button.addEventListener('click',function(event){
       </td>
       </tr>
       `
-    })}
+  })}
 
     </tbody>
       </table>
       `
-      console.log(data)
-      document.getElementById('modal_close').addEventListener('click', function(){
-        document.getElementById('modal').style.display='none'
+      document.getElementById('modal_close').addEventListener('click', function () {
+        document.getElementById('modal').style.display = 'none'
       })
-})
+    })
   })
 };
 
@@ -188,34 +196,32 @@ window.addEventListener('load', () => {
   updateGenerationList(kantoPokemons, sectionContent);
   // Guardando input para buscar
   const searchInput = document.querySelector('#filter-search');
-  setupSearchInputEvent(searchInput,sectionContent,data.pokemon)
+  setupSearchInputEvent(searchInput, sectionContent, data.pokemon)
   const selectionInput = document.querySelector('#selection');
-  setupOrderListEvent(selectionInput,sectionContent,data.pokemon)
+  setupOrderListEvent(selectionInput, sectionContent, data.pokemon)
   const filter = document.getElementById('filter-by-type')
-  console.log(filter)
-filter.addEventListener('change', function(event){
-  let selectedTypePokemons = data.pokemon.filter(function(pokemon){
-return pokemon.type.includes(event.target.value.toLowerCase()) 
+  filter.addEventListener('change', function (event) {
+    const selectedTypePokemons = data.pokemon.filter(function (pokemon) {
+      return pokemon.type.includes(event.target.value.toLowerCase())
+    })
+    if (event.target.value === 'Default') {
+      updateGenerationList(kantoPokemons, sectionContent)
+    } else {
+      updateGenerationList(selectedTypePokemons, sectionContent)
+    }
   })
-  console.log(event.target.value)
-  if (event.target.value === 'Default'){
-  updateGenerationList(kantoPokemons, sectionContent)
-  } else {
-    updateGenerationList(selectedTypePokemons, sectionContent)
-  }
-})
 });
 
-const setupSearchInputEvent = (searchInput,sectionContent,pokemonSearchList) => {
+const setupSearchInputEvent = (searchInput, sectionContent, pokemonSearchList) => {
   // Evento del input que ejecuta la funcion search
   searchInput.addEventListener('input', () => {
     const inputText = searchInput.value.toLowerCase();
-    if(inputText.length > 0){
+    if (inputText.length > 0) {
       // Buscando pokemones
       const result = search(pokemonSearchList, inputText);
-      result.length > 0 ? updateGenerationList(result,sectionContent) : setupNoResultsList(sectionContent)
+      result.length > 0 ? updateGenerationList(result, sectionContent) : setupNoResultsList(sectionContent)
     } else {
-      updateGenerationList(pokemonSearchList,sectionContent);
+      updateGenerationList(pokemonSearchList, sectionContent);
     }
   });
 }
@@ -225,14 +231,14 @@ const setupNoResultsList = (sectionContent) => {
   const cardsContainer = document.createElement('div');
   cardsContainer.className = 'cards-distribution';
   cardsContainer.innerHTML += ' Juguito de uwu ';
-  sectionContent.appendChild(cardsContainer);  
+  sectionContent.appendChild(cardsContainer);
 }
 
-const setupOrderListEvent = (selectionInput,sectionContent,pokemonList) => {
+const setupOrderListEvent = (selectionInput, sectionContent, pokemonList) => {
   selectionInput.addEventListener('change', () => {
     const chosenOrder = selectionInput.value;
     const orderedPokemons = order(pokemonList, chosenOrder)
-    updateGenerationList(orderedPokemons,sectionContent);
+    updateGenerationList(orderedPokemons, sectionContent);
   });
 }
 
