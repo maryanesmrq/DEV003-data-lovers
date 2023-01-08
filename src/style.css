@@ -1,3 +1,10 @@
+/*agregar fuente de Pokemon*/
+#hi{
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .cards-distribution {
   display: flex;
   flex-wrap: wrap;
@@ -55,4 +62,11 @@
 
 body{
   background-image: url("pokedex.jpg");
+}
+
+#kanto{
+ /*agregar fuente de Pokemon*/
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
