@@ -71,6 +71,8 @@ h1{
   top: 0px;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  color:#FFF;
+  font-size: small;
   background-color: rgb(0, 0, 0);
   left: 35%;
   display: none;
