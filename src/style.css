@@ -65,11 +65,12 @@ h1{
 
 #modal{
   width: 500px;
-  height: 1000px;
+  height: 300px;
   border: solid black 1px;
   position:fixed;
   top: 0px;
-  background-color: #FFF;
+  background-image: radial-gradient(black, grey, white);
+  /* background-color: rgb(0, 0, 0); */
   left: 35%;
   display: none;
 }
@@ -80,7 +81,7 @@ h1{
 
 body{
   background-image: url("pokedex.jpg");
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Poppins', sans-serif;
 }
 
 .search-section{
