@@ -1,13 +1,27 @@
-/*agregar fuente de Pokemon*/
-header{
+
+/* header{
   text-align: center;
   font-size: 3em;
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+/* } */
+
+img{
+  display:block;
+  margin:auto;
+}
+h1{
+  font-size:small;
 }
 
-h1{
-  font-size: .9 em;
+#filter-by-type{
+  justify-content: center;
+  width: 100px;
+}
+
+#selection{
+  justify-content: center;
+  width: 100px;
 }
 .cards-distribution {
   display: flex;
@@ -83,4 +97,10 @@ body{
   text-align: center;
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+input[type="search"]{
+  color:black;
+
+
 }
