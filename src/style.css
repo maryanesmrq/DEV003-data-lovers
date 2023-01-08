@@ -35,8 +35,9 @@ h1{
 
 .pokemon-card {
   width: 190px;
-  height: 200px;
+  height: 250px;
   background-color: #FFF;
+  opacity: 1;
   margin-bottom: 3em;
   padding: 1em;
   display: inline-block;
