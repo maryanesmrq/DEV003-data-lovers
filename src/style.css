@@ -9,6 +9,7 @@
 img{
   display:block;
   margin:auto;
+  max-width: 100;
 }
 h1{
   font-size:small;
@@ -71,7 +72,7 @@ h1{
   top: 0px;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  background-color: #d0d1ff;
+  background-color: #ddddfa;
   left: 35%;
   display: none;
 }
@@ -93,6 +94,12 @@ body{
   opacity: 0.7;
   border: 5px solid#bae1b2;
 }
+
+/* .search-button{
+  width: 50px;
+  text-align: right;
+  border-radius: 14px;
+} */
 
 #kanto{
  /*agregar fuente de Pokemon*/
