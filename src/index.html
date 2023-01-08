@@ -9,64 +9,62 @@
   </head>
 
   <body class="container">
-          <p id="hi">PokeCHUY</p>
+          <header>PokeCHUY</header>
       <nav >
-        <div>
-          <ul>
-            <li id="home">
-              <span>Home</span>
-            </li>
-          
-            
-          </ul>
+        <h1>Home</h1>
           <div class="search-section">
+            <label for="filter-search">Search by name</label><br>
             <input id="filter-search" type="search" placeholder="Type here">
           </div>
         </div>
       </nav>
     <section class="general-container">
       <aside class="hide-f ">
-        <ul class="filter-menu">
-          <label for="filter-by-type">
-            <li >Filter by type </li>
-          </label>
+          <label for="filter-by-type">Filter by type </label>
           <section class="sub-menu hide-f">
-            <select id ="filter-by-type">
+            <select id="filter-by-type" value="type">
               <option>Default</option>
-              <option id="ghost">Ghost</option>
-              <option id="psychic">Psychic</option>
-              <option id="normal">Normal</option>
-              <option id="fighting">Fighting</option>
-              <option id="poison">Poison</option>
-              <option id="bug">Bug</option>
-              <option id="flying">Flying</option>
-              <option id="dark">Dark</option>
-              <option id="fairy">Fairy</option>
-              <option id="water">Water</option>
-              <option id="fire">Fire</option>
-              <option id="grass">Grass</option>
-              <option id="ground">Ground</option>
-              <option id="rock">Rock</option>
-              <option id="steel">Steel</option>
-              <option id="ice">Ice</option>
-              <option id="electric">Electric</option>
-              <option id="dragon">Dragon</option>
+              <option value="ghost" id="ghost">Ghost</option>
+              <option value="psychic "id="psychic">Psychic</option>
+              <option value="Normal" id="normal">Normal</option>
+              <option value="fighting" id="fighting">Fighting</option>
+              <option value="poison" id="poison">Poison</option>
+              <option value="bug" id="bug">Bug</option>
+              <option value="flying" id="flying">Flying</option>
+              <option value="dark" id="dark">Dark</option>
+              <option value="fairy" id="fairy">Fairy</option>
+              <option value="water" id="water">Water</option>
+              <option value="fire" id="fire">Fire</option>
+              <option value="grass"id="grass">Grass</option>
+              <option value="ground" id="ground">Ground</option>
+              <option value="rock" id="rock">Rock</option>
+              <option value="steel" id="steel">Steel</option>
+              <option value="ice" id="ice">Ice</option>
+              <option value="electric"id="electric">Electric</option>
+              <option value="dragon"id="dragon">Dragon</option>
             </select>
           </section> 
-        </ul>
+          <label for="selection">Sort</label>
+          <section class="sort-container">
+            <select id="selection" value ="Sort">
+              <option value="default">Default</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+            </select>
+          </section>
       </aside>
      
       <main class="center"> 
         
         
-        <section class="sort-container">
+        <!-- <section class="sort-container">
           <p>Sort</p>
           <select id="selection" value ="Sort">
             <option value="default">Default</option>
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
           </select>
-        </section>
+        </section> -->
         <section class="content center"></section>
         <div id="modal"></div> 
         <p id="kanto">Kanto</p>
