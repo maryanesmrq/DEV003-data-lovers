@@ -52,3 +52,7 @@
 .center{
   position: relative;
 }
+
+body{
+  background-image: url("pokedex.jpg");
+}
