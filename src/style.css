@@ -75,7 +75,7 @@ h1{
   padding-bottom: 20px;
   background-color: #ddddfa;
   left: 35%;
-  display: none;
+  display: flex;
 }
 
 .center{
@@ -94,6 +94,7 @@ body{
   background-color: #bae1b2;
   opacity: 0.7;
   border: 5px solid#bae1b2;
+  display: flex;
 }
 
 /* .search-button{
@@ -102,12 +103,12 @@ body{
   border-radius: 14px;
 } */
 
-#kanto{
+/* #kanto{
  /*agregar fuente de Pokemon*/
   text-align: center;
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-}
+} */
 
 input[type="search"]{
   color:black;
