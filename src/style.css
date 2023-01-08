@@ -51,7 +51,7 @@ h1{
 
 #modal{
   width: 500px;
-  height: 500px;
+  height: 800px;
   border: solid black 1px;
   position:fixed;
   top: 0px;
@@ -71,7 +71,10 @@ body{
 
 .search-section{
   text-align: right;
+  font-weight: normal;
   padding: 30px;
+  background-color: #bae1b2;
+  opacity: 0.7;
   border: 5px solid#bae1b2;
 }
 
