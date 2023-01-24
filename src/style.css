@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@420;900&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap');
+@import url(='https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /* Inicio  */
 html,
@@ -130,7 +130,6 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  background-image: url("https://raw.githubusercontent.com/pibmunoz/DEV001-data-lovers/403f0e1407aa9a2da40770530d58fb9984474e96/src/img/rickandmortypattern.svg");
   border-radius: var(--border-radius);
   padding: 20px;
   max-width: 1250px;
@@ -143,17 +142,6 @@ nav {
 
 #clear-button {
   cursor: pointer;
-}
-
-footer {
-  grid-area: footer;
-  text-align: center;
-  background-color: var(--light-green-color);
-  margin-top: 10px;
-  bottom: 0;
-  width: 100vw;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 /* FIN GRID */
@@ -269,11 +257,6 @@ span {
   background-color: var(--blue-color);
 }
 
-#schwifty {
-  font-family: var(--font-headings);
-  font-weight: 900;
-  font-size: 20px;
-}
 
 .search {
   background-color: var(--portal-green-color);
@@ -318,10 +301,6 @@ h3 {
   max-width: max-content;
 }
 
-.statistics {
-  color: var(--white-color);
-  margin: 2px;
-}
 
 /* Menu escritorio*/
 #container-mobile {
@@ -390,13 +369,6 @@ a {
   color: var(--white-color);
 }
 
-/* Inicio Sección modal box */
-.cardQuiz {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 /* The Modal (background) */
 .modal {
@@ -522,14 +494,6 @@ a {
 
   input:checked~select {
     display: block;
-  }
-
-  .statisticsbtn,
-  .quiz {
-    display: flex;
-    position: relative;
-    border: solid 2px;
-    flex-direction: column;
   }
 
   nav {
