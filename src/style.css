@@ -17,7 +17,7 @@ body {
   --portal-green-color: #69D91A;
   --white-font-color: #FFFBFB;
   --white-color: #fff;
-  --blue-color: #5791E7;
+  --blue-color: #d41f95;
   --border-radius: 8px;
   --font-headings: 'Poppins';
   --font-body: 'Poppins';
@@ -191,20 +191,6 @@ nav {
   left: 2px;
 }
 
-button {
-  width: auto;
-  height: 3rem;
-  border-radius: 1rem;
-  margin: 1rem;
-  padding: .5rem;
-  font-family: var(--font-headings);
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--white-color);
-  border: #90BF49 solid 4px;
-  box-shadow: #D4D955 2px;
-  background-color: var(--black-color);
-}
 
 @keyframes hover-button {
   0% {
@@ -228,8 +214,22 @@ button {
   }
 }
 
+button {
+  width: auto;
+  height: 3rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: .5rem;
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--white-color);
+  border: #90BF49 solid 4px;
+  box-shadow: #D4D955 2px;
+  background-color: var(--black-color);
+}
 button:hover {
-  color: #D4D955;
+  color: #d41f95;
   border: #90BF49 solid 4px;
   animation-name: hover-button;
   animation-duration: 2s;
