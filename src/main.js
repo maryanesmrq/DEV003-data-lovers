@@ -39,7 +39,11 @@ window.onclick = function (event) {
 // Template de cards personajes en container, muestra las cards en la interfaz e incluye método de ordenar AZ-ZA. Depende de la data ingresada.
 const templateTarjeta = (x) => {
     x.forEach((results) => {
-        let info = `<div class="card"><img src="${results.image}"><br><p><strong>Name:</strong> ${results.name}</p><br><p><strong>Status:</strong> ${results.status}</p><br><p><strong>Species:</strong> ${results.species}</p><br><p><strong>Gender:</strong> ${results.gender}</p><br><p><strong>Origin:</strong> ${results["origin"].name}</p></div>`;
+        let info = `<div class="card"><img src="${results.image}"><br><p><strong>Name:</strong> ${results.name}</p>
+        <br><p><strong>Status:</strong> ${results.status}</p>
+        <br><p><strong>Species:</strong> ${results.species}</p>
+        <br><p><strong>Gender:</strong> ${results.gender}</p>
+        <br><p><strong>Origin:</strong> ${results["origin"].name}</p></div>`;
         containerData.insertAdjacentHTML("afterbegin", info);
     })
     let dataSort = x;
