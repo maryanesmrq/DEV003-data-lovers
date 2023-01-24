@@ -73,9 +73,9 @@ h1{
   top: 0px;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  background-color: #ddddfa;
+  background-color: #eee2ff;
   left: 35%;
-  /* display: none; */
+  display: none;
 }
 
 .center{
@@ -83,8 +83,10 @@ h1{
 }
 
 body{
-  background-image: url("pokedex.jpg");
+  background-image: url("rickandmorty1.jpg");
+
   font-family: 'Poppins', sans-serif;
+  background-color: black;
 }
 
 .search-section{
@@ -94,7 +96,28 @@ body{
   background-color: #bae1b2;
   opacity: 0.7;
   border: 5px solid#bae1b2;
-  display: none;
+ 
+}
+
+span{
+  background-color: #bae1b2;
+  border:1px solid black;
+  width:500px;
+}
+article{
+  font-size: 15px;
+}
+
+button{
+  font-size: 1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  background-color: #bae1b2;
+  color:black;
+}
+
+ul{
+  font: size 0.5em;
 }
 
 /* .search-button{
@@ -105,13 +128,13 @@ body{
 
 /* #kanto{
  /*agregar fuente de Pokemon*/
-  text-align: center;
+  /* text-align: center;
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 } */
 
-input[type="search"]{
+/* input[type="search"]{
   color:black;
 
 
-}
+} */ 
