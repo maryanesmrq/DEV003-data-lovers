@@ -1,52 +1,63 @@
-
-
-export const filterByGeneration = (data, generation) => (data.filter((pokemon) => (
-  pokemon.generation.name === generation))
-); 
-
-export const search = (data, inputText) => {
-  const lengthText = inputText.length;
-  return data.filter(
-    (rickandmorty) => results.name.slice(0, lengthText) === inputText
-  )
+// Export filter by gender
+export const filterGender = (data, gender) => {
+  const filtrado = data.filter(item => item.gender === gender);
+return filtrado;
 };
 
-export const filterByType = (data, typeChose) => {
-  return data.filter(
-    (pokemon) => pokemon.type.includes(typeChose)
-  )
-}
+// Export filter by status
+export const filterStatus = (data, status) => {
+  const filtrado = data.filter(item => item.status === status);
+return filtrado;
+};
 
-export const order = (data, parameter) => {
-  if(parameter === 'A-Z' || parameter === 'Z-A'){
-    const sortedArray = data.slice().sort((a, b) => a.name > b.name ? 1 : -1 );
-    return parameter === 'Z-A' ? sortedArray.reverse() : sortedArray
-  } else { 
-    return data
+// Export filter by species 
+export const filterSpecies = (data, species) => {
+  const filtrado = data.filter(item => item.species === species);
+return filtrado;
+};
+
+// Export order A-Z ascendent
+export const ordenAZ = (dataFilter) => {
+ const sortOrdenAZ =  dataFilter.sort(function (a, b) {
+    if (a.name < b.name) {
+      return 1;
+    }
+    if (a.name > b.name) {
+      return -1;
+    }
+//return 0;
+})
+return sortOrdenAZ;
+};
+
+// Export order A-Z descendent
+export const ordenZA = (dataFilter) => {
+const sortOrdenZA =  dataFilter.sort(function (a, b) {
+  if (a.name > b.name) {
+    return 1;
   }
+  if (a.name < b.name) {
+    return -1;
+  }
+ //return 0;
+ 
+})
+return sortOrdenZA;
 };
 
-// export const dpsCalculate = (quick, pokemonType) => {
-//   let dps = 0;
-//   const baseDamage = Number(quick['base-damage']);
-//   const time = Number(quick['move-duration-seg']);
-//   dps = (baseDamage / time).toFixed(1);
-//   for (let i = 0; i < pokemonType.length; i += 1) {
-//     if (pokemonType[i] === quick.type) {
-//       let stab = 0;
-//       stab = baseDamage + ((20 * baseDamage) / 100);
-//       dps = (stab / time).toFixed(1);
-//     }
-//   }
-//   return dps;
+//Search
+export const buscar = (data, condition, value) => {
+  return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
+};
+
+// función selección al azar de personaje Quiz
+// export function quiz (data){
+//   return data [Math.floor(Math.random()*data.length)]
+// }
+// Exporta función statisticsFrequency que retorna la proporción de la categoría de los personajes respecto del total de la data
+// export const statisticsFrequency = (originalDataLength, categoryDataLength) => {
+//   let firstData = originalDataLength.length;
+//   let secondData = categoryDataLength.length;
+//   return Math.round(secondData * 100 / firstData);
 // };
-
-// //export const epsCalculate = (quick) => {
-//   const energy = Number(quick.energy);
-//   const time = Number(quick['move-duration-seg']);
-//   return (energy / time).toFixed(1);
-// };
-
-
-
 
