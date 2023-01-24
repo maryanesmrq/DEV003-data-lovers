@@ -1,5 +1,6 @@
-import { filterByGeneration, search, order, dpsCalculate, epsCalculate } from './data.js';
-import data from './data/pokemon/pokemon.js';
+import { filterByGeneration, search, order} from './data.js';
+import data from './data/rickandmorty/rickandmorty.js';
+
 
 // Ser más específica con lo que se realiza y cambiar el nombre de la función //
 // Preguntar a coaches si puedo tener mis funciones dentro de diferentes carpetas para un código más ordenado //
@@ -25,127 +26,127 @@ const pokemonCardsHtml = (allPokemons) => {
   return dataPokemon;
 };
 
-const modalFeatureslHtml = (pokemon) => {
-  return `
-  <p id="modal_close">x</p>
-<section class="cards">
-  <section class="pokemon-name2 green-bg">${pokemon.num} - ${pokemon.name}</section>
-  <section class="info-container">
-    <div class="sub-container-img">
-      <p class="subtitle2">${pokemon['pokemon-rarity']}</p>
-      <div class="pokemon-screen green-b">
-        <img class="screen-img" src="${pokemon.img}">
-      </div>
-    </div>
-    <div class="sub-container-text">
-      <p class="subtitle2">generation</p>
-      <p class="p-bottom">N° ${pokemon.generation.num.slice(10).toUpperCase()} - ${pokemon.generation.name}</p>
-      <p class="subtitle2">type</p>
-      <p class="p-bottom">${pokemon.type.join()}</p>
-      <p class="subtitle2">size</p>
-      <p >Height: ${pokemon.size.height}</p>
-      <p >Weight: ${pokemon.size.weight}</p>
-    </div>
-  </section>
-  <section class="info-container">
-    <div class="column">
-      <p class="subtitle2 h-stat">Encounter</p>
-      <div class="number-data">
-        <p>Base flee rate</p>
-        <p class="num-cel">${(pokemon.encounter['base-flee-rate'] * 100).toFixed(1)}%</p>
-      </div>
-      <div class="number-data">
-        <p>Base capture rate</p>
-        <p class="num-cel">${(pokemon.encounter['base-capture-rate'] * 100).toFixed(1)}%</p>
-      </div>
-    </div>
-    <div class="column">
-      <p class="subtitle2 h-stat">Spawn chance</p>
-      <p class="num-cel">${(pokemon['spawn-chance'] * 100).toFixed(2)}%</p>
-    </div>
+// const modalFeatureslHtml = (pokemon) => {
+//   return `
+//   <p id="modal_close">x</p>
+// <section class="cards">
+//   <section class="pokemon-name2 green-bg">${pokemon.num} - ${pokemon.name}</section>
+//   <section class="info-container">
+//     <div class="sub-container-img">
+//       <p class="subtitle2">${pokemon['pokemon-rarity']}</p>
+//       <div class="pokemon-screen green-b">
+//         <img class="screen-img" src="${pokemon.img}">
+//       </div>
+//     </div>
+//     <div class="sub-container-text">
+//       <p class="subtitle2">generation</p>
+//       <p class="p-bottom">N° ${pokemon.generation.num.slice(10).toUpperCase()} - ${pokemon.generation.name}</p>
+//       <p class="subtitle2">type</p>
+//       <p class="p-bottom">${pokemon.type.join()}</p>
+//       <p class="subtitle2">size</p>
+//       <p >Height: ${pokemon.size.height}</p>
+//       <p >Weight: ${pokemon.size.weight}</p>
+//     </div>
+//   </section>
+//   <section class="info-container">
+//     <div class="column">
+//       <p class="subtitle2 h-stat">Encounter</p>
+//       <div class="number-data">
+//         <p>Base flee rate</p>
+//         <p class="num-cel">${(pokemon.encounter['base-flee-rate'] * 100).toFixed(1)}%</p>
+//       </div>
+//       <div class="number-data">
+//         <p>Base capture rate</p>
+//         <p class="num-cel">${(pokemon.encounter['base-capture-rate'] * 100).toFixed(1)}%</p>
+//       </div>
+//     </div>
+//     <div class="column">
+//       <p class="subtitle2 h-stat">Spawn chance</p>
+//       <p class="num-cel">${(pokemon['spawn-chance'] * 100).toFixed(2)}%</p>
+//     </div>
   
-  `
-}
+//   `
+// }
 
-const modalAttacklHtml = (pokemon) => {
-  return `
-  <p id="modal_close">x</p>
-      <section class="cards">
-        <section class="pokemon-name2 red-bg">${pokemon.num} - ${pokemon.name}</section>
-        <section class="info-container">
-          <div class="sub-container-img">
-            <div class="pokemon-screen red-b">
-              <img class="screen-img" src="${pokemon.img}">
-            </div>
-          </div>
-          <div class="stats-container">
-            <p class="borderRows subtitle2">Stats</p>
-            <div class= "name-stats">
-              <p>Base attack: ${pokemon.stats['base-attack']}</p>
-              <p>Base defense: ${pokemon.stats['base-defense']}</p>
-              <p>Base stamina: ${pokemon.stats['base-stamina']}</p>
-              <p>Max CP: ${pokemon.stats['max-cp']}</p>
-              <p>Max HP: ${pokemon.stats['max-hp']}</p>
-            </div>
-          </div>
-        </section>
-        <section class="info-container">
-          <div class="column2">
-            <p class="borderRows subtitle2">Resistant</p>
-            <p>${pokemon.resistant.join()}</p>
-          </div>
-          <div class="column2">
-            <p class="borderRows subtitle2">Weakness</p>
-            <p>${pokemon.weaknesses.join()}</p>
-          </div>
-        </section> 
-      </section>  
-      <table>
-      <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>BD</th>
-      <th>E</th>
-      <th>MD</th>
-      <th>DPS</th>
-      <th>EPS</th>
-    </tr>
-  </thead> 
-    <tbody>
-    ${pokemon['special-attack'].map(function (attack) {
-    return `
-      <tr>
-      <td>
-      ${attack.name}
-      </td>
-      <td>
-      ${attack.type}
-      </td>
-      <td>
-      ${attack['base-damage']}
-      </td>
-      <td>
-      ${attack.energy}
-      </td>
-      <td>
-      ${attack['move-duration-seg']}
-      </td>
-      <td>
-      ${dpsCalculate(attack, attack.type)}
-      </td>
-      <td>
-      ${epsCalculate(attack)}
-      </td>
-      </tr>
-      `
-  })}
-      </table>
+// const modalAttacklHtml = (pokemon) => {
+//   return `
+//   <p id="modal_close">x</p>
+//       <section class="cards">
+//         <section class="pokemon-name2 red-bg">${pokemon.num} - ${pokemon.name}</section>
+//         <section class="info-container">
+//           <div class="sub-container-img">
+//             <div class="pokemon-screen red-b">
+//               <img class="screen-img" src="${pokemon.img}">
+//             </div>
+//           </div>
+//           <div class="stats-container">
+//             <p class="borderRows subtitle2">Stats</p>
+//             <div class= "name-stats">
+//               <p>Base attack: ${pokemon.stats['base-attack']}</p>
+//               <p>Base defense: ${pokemon.stats['base-defense']}</p>
+//               <p>Base stamina: ${pokemon.stats['base-stamina']}</p>
+//               <p>Max CP: ${pokemon.stats['max-cp']}</p>
+//               <p>Max HP: ${pokemon.stats['max-hp']}</p>
+//             </div>
+//           </div>
+//         </section>
+//         <section class="info-container">
+//           <div class="column2">
+//             <p class="borderRows subtitle2">Resistant</p>
+//             <p>${pokemon.resistant.join()}</p>
+//           </div>
+//           <div class="column2">
+//             <p class="borderRows subtitle2">Weakness</p>
+//             <p>${pokemon.weaknesses.join()}</p>
+//           </div>
+//         </section> 
+//       </section>  
+//       <table>
+//       <thead>
+//     <tr>
+//       <th>Name</th>
+//       <th>Type</th>
+//       <th>BD</th>
+//       <th>E</th>
+//       <th>MD</th>
+//       <th>DPS</th>
+//       <th>EPS</th>
+//     </tr>
+//   </thead> 
+//     <tbody>
+//     ${pokemon['special-attack'].map(function (attack) {
+//     return `
+//       <tr>
+//       <td>
+//       ${attack.name}
+//       </td>
+//       <td>
+//       ${attack.type}
+//       </td>
+//       <td>
+//       ${attack['base-damage']}
+//       </td>
+//       <td>
+//       ${attack.energy}
+//       </td>
+//       <td>
+//       ${attack['move-duration-seg']}
+//       </td>
+//       <td>
+//       ${dpsCalculate(attack, attack.type)}
+//       </td>
+//       <td>
+//       ${epsCalculate(attack)}
+//       </td>
+//       </tr>
+//       `
+//   })}
+//       </table>
 
   
-  `
+//   `
 
-}
+// }
 
 // Ser más específica con la función GENERATION // updateGenerationList
 // Obteniendo todos los pokemones y separando por generación
