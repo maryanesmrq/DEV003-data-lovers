@@ -50,14 +50,5 @@ export const buscar = (data, condition, value) => {
   return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
 };
 
-// función selección al azar de personaje Quiz
-// export function quiz (data){
-//   return data [Math.floor(Math.random()*data.length)]
-// }
-// Exporta función statisticsFrequency que retorna la proporción de la categoría de los personajes respecto del total de la data
-// export const statisticsFrequency = (originalDataLength, categoryDataLength) => {
-//   let firstData = originalDataLength.length;
-//   let secondData = categoryDataLength.length;
-//   return Math.round(secondData * 100 / firstData);
-// };
+
 
