@@ -1,5 +1,5 @@
 import rickandmorty from './data/rickandmorty/rickandmorty.js';
-import { filterGender, filterStatus, filterSpecies, statisticsFrequency, ordenAZ, ordenZA, buscar, quiz } from './data.js';
+import { filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, buscar} from './data.js';
 
 // Data Rick and Morty
 let data = rickandmorty.results;
@@ -11,7 +11,7 @@ let filterOptionStatus = document.getElementById("filterStatus");
 let filterOptionGender = document.getElementById("filterGender");
 let filterOptionSpecies = document.getElementById("filterSpecies");
 let buscarPersonajes = document.querySelector("#buscar");
-let mostrarStatistics = document.getElementById("statistics");
+
 const clearButton = document.getElementById("clear-button");
 
 // Modal inicio
@@ -35,48 +35,6 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
-// Random function en quiz
-const randomButton = document.getElementById("random-function");
-randomButton.addEventListener("click", () => {
-    let dataRandom;
-    let checked1 = document.getElementById("checkedornot");
-    let checked1children = checked1.children;
-    let checked2 = document.getElementById("checkedornot2");
-    let checked2children = checked2.children;
-    let mostrarCardQuiz = document.getElementById("cardPersonaje");
-    // Recorre todos los children de checked1, regresa los filtrados según selección de usuario y guarda data en variable dataRandom
-    for (let item of checked1children) {
-        if (item.checked) {
-            console.log(filterGender(data, item.value));
-            dataRandom = filterGender(data, item.value);
-
-        }
-    }
-    // Recorre todos los children de checked2, regresa los filtrados según selección de usuario, retorna valor final de dataRandom   
-    for (let item of checked2children) {
-        if (item.checked) {
-            dataRandom = filterStatus(dataRandom, item.value);
-            console.log(dataRandom);
-        }
-    }
-    // Ingresa valor de variable dataRandom a la función `quiz` y guarda el valor en la variable dataRandom
-    dataRandom = quiz(dataRandom);
-    // Template de card en el quiz, se inserta en el innerHTML en el div con id "mostrarCardQuiz"
-    let cardQuiz = `</div><h3>You're sooo ${dataRandom.name}!</h3><div class="cardQuiz"><img class="imgRandom" src="${dataRandom.image}"><br><p><strong>Name:</strong> ${dataRandom.name}</p><br><p><strong>Status:</strong> ${dataRandom.status}</p><br><p><strong>Species:</strong> ${dataRandom.species}</p><br><p><strong>Gender:</strong> ${dataRandom.gender}</p><br><p><strong>Origin:</strong> ${dataRandom["origin"].name}</p>`;
-    mostrarCardQuiz.innerHTML = cardQuiz;
-});
-// Oculta información del modal cuando se envían las respuestas ingresadas en el quiz
-randomButton.addEventListener("click", () => {
-    let x = document.getElementById("checkedornot3");
-    let y = document.getElementById("checkedornot");
-    let z = document.getElementById("checkedornot2");
-    if (x.hidden === false && y.hidden === false && z.hidden === false) {
-        x.hidden = true;
-        y.hidden = true;
-        z.hidden = true;
-    }
-});
-// fin modal
 
 // Template de cards personajes en container, muestra las cards en la interfaz e incluye método de ordenar AZ-ZA. Depende de la data ingresada.
 const templateTarjeta = (x) => {
@@ -138,9 +96,6 @@ filterOptionGender.addEventListener("click", () => {
     }
     // Función buscar en input por dataFiltrada
     searchInput(dataFiltrada);
-    // Agrega mensaje en pantalla con estadísticas de la categoría
-    let options = filterOptionGender.value;
-    mostrarStatistics.innerHTML = `Did you know that ${options} represents ${statisticsFrequency(data, dataFiltrada)}% of the ${data.length} characters in the show`;
 });
 
 //funcion filtrado por Species
@@ -202,9 +157,6 @@ filterOptionSpecies.addEventListener("click", () => {
     }
     // Función buscar en input por dataFiltrada
     searchInput(dataFiltrada);
-    // Agrega mensaje en pantalla con estadísticas de la categoría
-    let optionsSpecies = filterOptionSpecies.value;
-    mostrarStatistics.innerHTML = `Did you know that ${optionsSpecies} represents ${statisticsFrequency(data, dataFiltrada)}% of the ${data.length} characters in the show`;
 });
 
 //funcion filtrado por Status
@@ -230,9 +182,6 @@ filterOptionStatus.addEventListener("change", () => {
     }
     // Función buscar en input por dataFiltrada
     searchInput(dataFiltrada);
-    // Agrega mensaje en pantalla con estadísticas de la categoría
-    let optionsStatus = filterOptionStatus.value;
-    mostrarStatistics.innerHTML = `Did you know that ${optionsStatus} represents ${statisticsFrequency(data, dataFiltrada)}% of the ${data.length} characters in the show`;
 });
 
 //buscar
