@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Lovers</title>
-  <script src="https://kit.fontawesome.com/da6daf1276.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -17,7 +16,7 @@
 
     <select name="Gender" id="filterGender">
       <optgroup label="Genders">
-        <option value="all">All Genders</option>
+        <option value="all">Filter by genders</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Genderless">Genderless</option>
@@ -26,7 +25,7 @@
     </select>
     <select name="Status" id="filterStatus">
       <optgroup label="Status">
-        <option value="all">All Status</option>
+        <option value="all">Filter by status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="unknown">Unknown</option>
@@ -34,7 +33,7 @@
     </select>
     <select name="Species" id="filterSpecies">
       <optgroup label="Species">
-        <option value="all">All Species</option>
+        <option value="species">Filter by species</option>
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
         <option value="Mytholog">Mytholog</option>
@@ -49,7 +48,7 @@
         <option value="Vampire">Vampire</option>
       </optgroup>
     </select>
-    <button id="clear-button">Clear Filter</button>
+    <!-- <button id="clear-button">Clear Filter</button> -->
   </div>
 
       <!--Inicio menú categorías, search y sort-->
@@ -57,12 +56,11 @@
 
       <div class="section-title">
         <h2>CHARACTERS</h2>
-        <div class="statistics" id="statistics"> </div>
 
         <div class="seccion-botones">
           <div class="search">
             <h3>Search</h3>
-            <input id="buscar" type="text" placeholder="Search your character!">
+            <input id="buscar" type="text" placeholder="Search by name">
           </div>
 
           <div class="filter-data">

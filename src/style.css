@@ -6,6 +6,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--black-color);
+  background-image: url("./img/rickandmorty.jpg");
 }
 
 /* Colores y fuentes utilizados */
@@ -17,7 +18,7 @@ body {
   --portal-green-color: #69D91A;
   --white-font-color: #FFFBFB;
   --white-color: #fff;
-  --blue-color: #d41f95;
+  --pink-color: #d41f95;
   --border-radius: 8px;
   --font-headings: 'Poppins';
   --font-body: 'Poppins';
@@ -59,22 +60,9 @@ body {
   width: 100px;
 }
 
-.grafico {
-  max-width: 500px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
 
-}
-.contenedorGrafico {
-  display: flex;
-  justify-content: center;
-}
 
-canvas {
-  position: relative;
-  justify-content: center;
-}
+
 
 .section-title2 {
   text-align: center;
@@ -117,6 +105,7 @@ nav {
   display: flex;
   border-radius: 1rem;
   background-color: #2d2f30;
+  background-image: url(rickandmorty.jpg);
   padding: 10px;
   flex-direction: column;
   align-items: center;
@@ -254,7 +243,8 @@ span {
 #sort {
   display: block;
   font-family: var(--font-headings);
-  background-color: var(--blue-color);
+  font-weight: bold;
+  background-color: var(--pink-color);
 }
 
 
@@ -348,7 +338,7 @@ option:hover {
   font-size: 25px;
   color: var(--white-color);
   background-color: var(--black-color);
-  border: var(--portal-green-color) solid 2px;
+  border: var(--pink-color) solid 2px;
   width: 95vw;
   padding: 10px;
   border-radius: 3px;
@@ -360,7 +350,7 @@ option:hover {
 }
 
 #container-mobile select:hover {
-  background-color: var(--grey-color);
+  background-color: var(--portal-green-color);
   border-radius: 0;
 }
 
@@ -492,10 +482,6 @@ a {
     display: none;
   }
 
-  input:checked~select {
-    display: block;
-  }
-
   nav {
     display: flex;
     flex-direction: column;
@@ -563,11 +549,7 @@ a {
     justify-content: center;
     flex-direction: row;
   }
-  .contenedorGrafico {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+
 }
 
 /* Fin interfaz mobile */

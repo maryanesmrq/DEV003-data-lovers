@@ -46,7 +46,7 @@ return sortOrdenZA;
 };
 
 //Search
-export const buscar = (data, condition, value) => {
+export const search = (data, condition, value) => {
   return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
 };
 
