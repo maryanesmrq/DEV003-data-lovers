@@ -1,5 +1,6 @@
+import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from './data.js';
 import rickandmorty from './data/rickandmorty/rickandmorty.js';
-import { filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, buscar} from './data.js';
+
 
 // Data Rick and Morty
 let data = rickandmorty.results;
@@ -10,9 +11,8 @@ let sortOption = document.getElementById("sort");
 let filterOptionStatus = document.getElementById("filterStatus");
 let filterOptionGender = document.getElementById("filterGender");
 let filterOptionSpecies = document.getElementById("filterSpecies");
-let buscarPersonajes = document.querySelector("#buscar");
-
-const clearButton = document.getElementById("clear-button");
+let searchCharacters = document.querySelector("#search");
+// const clearButton = document.getElementById("clear-button");
 
 // Modal inicio
 const modal = document.getElementById("myModal");
@@ -61,17 +61,17 @@ const templateTarjeta = (x) => {
 };
 // Define función de búsqueda de personajes por nombre. Depende de data ingresada.
 const searchInput = (x) => {
-    buscarPersonajes.addEventListener('keyup', () => {
-        let dataPersonajes = buscar(x, 'name', buscarPersonajes.value);
+    searchCharacters.addEventListener('keyup', () => {
+        let dataPersonajes = buscar(x, 'name', searchCharacters.value);
         containerData.innerHTML = "";
         return templateTarjeta(dataPersonajes);
     });
 };
 // clear button
-templateTarjeta(data);
-clearButton.addEventListener("click", () => {
-    return window.location.reload();
-});
+// templateTarjeta(data);
+// clearButton.addEventListener("click", () => {
+//     return window.location.reload();
+// });
 
 //funcion filtrado por Gender
 filterOptionGender.addEventListener("click", () => {
@@ -188,9 +188,9 @@ filterOptionStatus.addEventListener("change", () => {
     searchInput(dataFiltrada);
 });
 
-//buscar
-buscarPersonajes.addEventListener('keyup', () => {
-    let dataPersonajes = buscar(data, 'name', buscarPersonajes.value);
+//Search
+searchCharacters.addEventListener('keyup', () => {
+    let dataPersonajes = search(data, 'name', searchCharacters.value);
     containerData.innerHTML = "";
     templateTarjeta(dataPersonajes);
 });
