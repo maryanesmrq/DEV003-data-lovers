@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Lovers</title>
+  <script src="https://kit.fontawesome.com/da6daf1276.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -16,7 +17,7 @@
 
     <select name="Gender" id="filterGender">
       <optgroup label="Genders">
-        <option value="all">Filter by genders</option>
+        <option value="all">All Genders</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Genderless">Genderless</option>
@@ -25,7 +26,7 @@
     </select>
     <select name="Status" id="filterStatus">
       <optgroup label="Status">
-        <option value="all">Filter by status</option>
+        <option value="all">All Status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="unknown">Unknown</option>
@@ -33,7 +34,7 @@
     </select>
     <select name="Species" id="filterSpecies">
       <optgroup label="Species">
-        <option value="species">Filter by species</option>
+        <option value="all">All Species</option>
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
         <option value="Mytholog">Mytholog</option>
@@ -48,19 +49,22 @@
         <option value="Vampire">Vampire</option>
       </optgroup>
     </select>
-    <!-- <button id="clear-button">Clear Filter</button> -->
+    <button id="clear-button">Clear Filter</button>
   </div>
+<!--Fin menu-->
 
-      <!--Inicio menú categorías, search y sort-->
+  <div class="container">
+    <!--Inicio menú categorías, search y sort-->
     <div class="category" id="category">
 
       <div class="section-title">
         <h2>CHARACTERS</h2>
+        <div class="statistics" id="statistics"> </div>
 
         <div class="seccion-botones">
           <div class="search">
             <h3>Search</h3>
-            <input id="buscar" type="text" placeholder="Search by name">
+            <input id="buscar" type="text" placeholder="Search your character!">
           </div>
 
           <div class="filter-data">
@@ -79,13 +83,18 @@
         </div>
       </div>
     </div>
+    <!--Fin menú categorías, search y sort-->
 
     <!--Inicio sección cards de personajes-->
 
     <div class="cards" id="cards">
+      <article class="card"></article>
       <div class="card-1">
       </div>
     </div>
+
+
+
     <!--Fin sección cards de personajes-->
   </div>
 
