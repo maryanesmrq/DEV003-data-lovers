@@ -70,7 +70,7 @@ body {
 
 /* INICIO GRID */
 .container {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr max-content 1fr;
   gap: 8px 0px;
@@ -84,7 +84,7 @@ body {
     "cards cards cards"
     "footer footer footer";
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 nav {
@@ -99,8 +99,8 @@ nav {
 .category {
   grid-area: section-title;
   display: flex;
-  border-radius: 1rem;
-  background-color: #2d2f30;
+  /* border-radius: 1rem; */
+  background-color: #96d966;
   background-image: url(rickandmorty.jpg);
   padding: 10px;
   flex-direction: column;
@@ -233,11 +233,13 @@ span {
 #buscar,
 #sort {
   padding: .5rem;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
 }
 
 #sort {
   display: flex;
+  position: relative;
+  left: 45px;
   font-family: var(--font-headings);
   font-weight: bold;
   background-color: var(--pink-color);
