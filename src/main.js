@@ -12,34 +12,13 @@ let filterOptionStatus = document.getElementById("filterStatus");
 let filterOptionGender = document.getElementById("filterGender");
 let filterOptionSpecies = document.getElementById("filterSpecies");
 let searchCharacters = document.querySelector("#search");
-// const clearButton = document.getElementById("clear-button");
-
-// Modal inicio
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// Usuario hace click y modal se abre
-btn.onclick = function () {
-    modal.style.display = "block";
-};
-// Usuario hace click en <span> (x), modal se cierra
-span.onclick = function () {
-    modal.style.display = "none";
-};
-// Usuario hace click fuera del modal, modal se cierra
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+const clearButton = document.getElementById("clear-button");
 
 // Template de cards personajes en container, muestra las cards en la interfaz e incluye método de ordenar AZ-ZA. Depende de la data ingresada.
 const templateTarjeta = (x) => {
     x.forEach((results) => {
-        let info = `<div class="card"><img src="${results.image}"><br><p><strong>Name:</strong> ${results.name}</p>
+        let info = `<div class="card"><img src="${results.image}">
+        <br><p><strong>Name:</strong> ${results.name}</p>
         <br><p><strong>Status:</strong> ${results.status}</p>
         <br><p><strong>Species:</strong> ${results.species}</p>
         <br><p><strong>Gender:</strong> ${results.gender}</p>
@@ -68,10 +47,10 @@ const searchInput = (x) => {
     });
 };
 // clear button
-// templateTarjeta(data);
-// clearButton.addEventListener("click", () => {
-//     return window.location.reload();
-// });
+templateTarjeta(data);
+clearButton.addEventListener("click", () => {
+    return window.location.reload();
+});
 
 //funcion filtrado por Gender
 filterOptionGender.addEventListener("click", () => {
@@ -194,3 +173,26 @@ searchCharacters.addEventListener('keyup', () => {
     containerData.innerHTML = "";
     templateTarjeta(dataPersonajes);
 });
+
+// Modal inicio
+// const modal = document.getElementById("myModal");
+// const btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+// const span = document.getElementsByClassName("close")[0];
+
+// Usuario hace click y modal se abre
+// btn.onclick = function () {
+//     modal.style.display = "block";
+
+// Usuario hace click en <span> (x), modal se cierra
+// span.onclick = function () {
+//     modal.style.display = "none";
+// };
+// Usuario hace click fuera del modal, modal se cierra
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// };
+
