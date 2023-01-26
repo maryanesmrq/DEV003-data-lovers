@@ -60,16 +60,12 @@ body {
   width: 100px;
 }
 
-
-
-
-
-.section-title2 {
+/* .section-title2 {
   text-align: center;
   font-family: var(--font-headings);
   font-weight: 900;
   margin: 20px
-}
+} */
 
 
 /* INICIO GRID */
@@ -144,7 +140,7 @@ nav {
 }
 
 .card {
-  background-color: #FFFDFD;
+  background-color: #00ff2a;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -241,14 +237,14 @@ span {
 }
 
 #sort {
-  display: block;
+  display: flex;
   font-family: var(--font-headings);
   font-weight: bold;
   background-color: var(--pink-color);
 }
 
 
-.search {
+/* .search {
   background-color: var(--portal-green-color);
   display: inline-block;
   margin: 5px;
@@ -257,7 +253,7 @@ span {
   border-radius: var(--border-radius);
   font-size: 25;
   text-align: center;
-}
+} */
 
 h2 {
   color: var(--white-font-color);
