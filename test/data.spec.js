@@ -1,4 +1,4 @@
-import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from '../src/data.js';
+import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA} from '../src/data.js';
 import { data } from './testing-data'
 
 describe('filterGender', () => {
