@@ -1,127 +1,79 @@
-import { search, order, filterByGeneration, filterByType, dpsCalculate,  epsCalculate } from '../src/data.js';
+import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from '../src/data.js';
 import { data } from './testing-data'
-import { dataCalculate } from './testing-data'
 
-describe('filterByGeneration', () => {
+describe('filterGender', () => {
   it('is a function', () => {
-    expect(typeof filterByGeneration).toBe('function');
+    expect(typeof filterGender).toBe('function');
   });
 
-  it('should return an empty array when search its not matching whith the entered letters', () => {
-    expect(filterByGeneration(data, 'xxwe')).toEqual([]);
-  });
-
-  it('should return two specific pokemons', () => {
-    const searchResult = filterByGeneration(data, 'johto')
+  it('should return gender male and unknown', () => {
+    const searchResult = filterGender(data, 'gender')
     expect(searchResult.length).toEqual(2)
-    expect(searchResult[0].name).toEqual('cleffa');
-    expect(searchResult[1].name).toEqual('misdreavus');
+    expect(searchResult[0].name).toEqual('Male');
+    expect(searchResult[1].name).toEqual('unknown');
   });
-
-  it('should have all returned pokemons be from johto region only',()=>{
-    const searchResult = filterByGeneration(data, 'johto')
-    const regionsFound = searchResult.map(el => el.generation.name)
-    const onlyUnique = regionsFound.filter((value, index, self) => {
-      return self.indexOf(value) === index;
-    })
-    expect(onlyUnique).toEqual(['johto']);
-  })
 })
 
-describe('search', () => {
+describe('filterStatus', () => {
   it('is a function', () => {
-    expect(typeof search).toBe('function');
+    expect(typeof filterStatus).toBe('function');
   });
 
-  it('should return an empty array when search its not matching whith the entered letters', () => {
-    expect(search(data, 'xxwe')).toEqual([]);
-  });
-
-  it('should return one specific pokemon for query "bul"', () => {
-    const searchResult = search(data, 'bul')
-    expect(searchResult.length).toEqual(1)
-    expect(searchResult[0].name).toEqual('bulbasaur');
-  });
-
-});
-
-// Alphabetical order
-describe('order', () => {
-  it('is a function', () => {
-    expect(typeof order).toBe('function');
-  });
-
-  it('should return six specific pokemons in ascendent order for case "A-Z"', () => {
-    const searchResult = order(data, 'A-Z')
-    expect(searchResult.length).toEqual(6)
-    expect(searchResult[0].name).toEqual('arbok'); 
-    expect(searchResult[1].name).toEqual('bulbasaur'); 
-    expect(searchResult[2].name).toEqual('charmeleon'); 
-    expect(searchResult[3].name).toEqual('cleffa'); 
-    expect(searchResult[4].name).toEqual('misdreavus'); 
-    expect(searchResult[5].name).toEqual('poliwag'); 
-  });
-
-  it('should return the same array but reversed for cases "A-Z" and "Z-A"', () => {
-    const resultAZ = order(data, 'A-Z')
-    const resultZA = order(data, 'Z-A')
-    expect(resultAZ).toEqual(resultZA.reverse());
-  });
-
-  it('should return data as default' , () => {
-    const defaultOrder = order(data)
-    expect(defaultOrder).toEqual(data);
-  });
-
-
-});
-
-// Filter by type
-describe('filterByType', () => {
-
-  it('is a function', () => {
-    expect(typeof filterByType).toBe('function');
-  });
-
-  it('should return an empty array when search its not matching whith the entered letters', () => {
-    expect(filterByType(data, 'xxwe')).toEqual([]);
-  });
-
-  it('should return two specific pokemons', () => {
-    const searchResult = filterByType(data, 'poison')
+  it('should return status alive and dead', () => {
+    const searchResult = filterStatus(data, 'status')
     expect(searchResult.length).toEqual(2)
-    console.log(searchResult)
-    expect(searchResult[0].name).toEqual('bulbasaur');
-    expect(searchResult[1].name).toEqual('arbok');
+    expect(searchResult[0].name).toEqual('Alive');
+    expect(searchResult[1].name).toEqual('Dead');
+  });
+})
+
+describe('filterSpecies', () => {
+  it('is a function', () => {
+    expect(typeof filterSpecies).toBe('function');
   });
 
-  it('should have all returned pokemons be poison type',()=>{
-    const searchResult = filterByType(data, 'poison')
-    const poisonTypeFound = searchResult.map(el => el.type.includes('poison'))
-    const onlyUnique = poisonTypeFound.filter((value, index, self) => {
-      return self.indexOf(value) === index;
-    })
-    expect(onlyUnique).toEqual([true]);
-  })
-});
+  it('should return species Poopybutthole, Mytholog and Humanoid', () => {
+    const searchResult = filterSpecies(data, 'species')
+    expect(searchResult.length).toEqual(3)
+    expect(searchResult[0].name).toEqual('Poopybutthole');
+    expect(searchResult[1].name).toEqual('Mytholog');
+    expect(searchResult[2].name).toEqual('Humanoid')
+  });
+})
 
+describe('ordenAZ', ()=> {
+  it('is a function', () => {
+    expect(typeof ordenAZ).toBe('function');
+  });
 
-// Energy per second
-it('is a function', () => {
-  expect(typeof epsCalculate).toBe('function');
-});
+  it('should return 7 characters in ascendent order for A to Z', () => {
+    const searchResult = ordenAZ(data, 'A-Z')
+    expect(searchResult,length).toEqual(7)
+    expect(searchResult[0].name).toEqual('Abadango Cluster Princess');
+    expect(searchResult[1].name).toEqual('Adjudicator Rick');
+    expect(searchResult[2].name).toEqual('Alexander');
+    expect(searchResult[3].name).toEqual('Alien Googah');
+    expect(searchResult[4].name).toEqual('Benjamin');
+    expect(searchResult[5].name).toEqual('Big Boobed Waitress');
+    expect(searchResult[6].name).toEqual('Goddess Beth');
+  });
+})
 
-it('should return energy per second result of the selected pokemon', () => {
-  expect(epsCalculate(dataCalculate)).toBe('10.0');
-});
+describe('ordenZA', ()=> {
+  it('is a function', () => {
+    expect(typeof ordenZA).toBe('function');
+  });
 
-
-// Damage per second
-it('is a function', () => {
-  expect(typeof dpsCalculate).toBe('function');
-});
-
-it('should return damage per second result of the second selected pokemon', () => {
-  expect(dpsCalculate(dataCalculate, ['fire', 'grass'])).toBe('12.0');
-});
+  it('should return 7 characters in descendent order for Z to A', () => {
+    const searchResult = ordenZA(data, 'Z-A')
+    expect(searchResult,length).toEqual(7)
+    expect(searchResult[0].name).toEqual('Goddess Beth');
+    expect(searchResult[1].name).toEqual('Big Boobed Waitress');
+    expect(searchResult[2].name).toEqual('Benjamin');
+    expect(searchResult[3].name).toEqual('Alien Googah');
+    expect(searchResult[4].name).toEqual('Alexander');
+    expect(searchResult[5].name).toEqual('Adjuticator Rick');
+    expect(searchResult[6].name).toEqual('Abadango Cluster Princess');
+  });
+})
 

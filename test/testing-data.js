@@ -1,84 +1,51 @@
 export const data = [
   {
-    num: '173',
-    name: 'cleffa',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fairy',
-    ],
+    id: '12',
+    name: 'Alexander',
+    status: 'Dead',
+    species: 'Human',
+    gender: 'Male',
   },
   {
-    num: '001',
-    name: 'bulbasaur',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'grass',
-      'poison',
-    ],
+    id: '13',
+    name: 'Alien Googah',
+    status: 'unknown',
+    species: 'Alien',
+    gender: 'unknown',
   },
   {
-    num: '060',
-    name: 'poliwag',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'water',
-    ],
+    id: '6',
+    name: 'Abadango Cluster Princess',
+    status: 'Alive',
+    species: 'Alien',
+    gender: 'Female',
   },
   {
-    num: '024',
-    name: 'arbok',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'poison',
-    ],
+    id: '8',
+    name: 'Adjudicator Rick',
+    status: 'Dead',
+    species: 'Human',
+    gender: 'Male', 
   },
   {
-    num: '200',
-    name: 'misdreavus',
-    generation: {
-      num: 'generation ii',
-      name: 'johto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'ghost',
-    ],
+    id: '34',
+    name: 'Benjamin',
+    status: 'Alive',
+    species: 'Poopybutthole',
+    gender: 'Male', 
   },
   {
-    num: '005',
-    name: 'charmeleon',
-    generation: {
-      num: 'generation i',
-      name: 'kanto',
-    },
-    pokemonRarity: 'normal',
-    type: [
-      'fire',
-    ],
-    
+    id: '148',
+    name: 'Goddess Beth',
+    status: 'unknown',
+    species: 'Mytholog',
+    gender: 'Female', 
+  },
+  {
+    id: '41',
+    name: 'Big Boobed Waitress',
+    status: 'Alive',
+    species: 'Humanoid',
+    gender: 'Female', 
   },
 ];
-
-export const dataCalculate = {
-  name: 'ember',
-  type: 'fire',
-  'base-damage': '10',
-  energy: '10',
-  'move-duration-seg': '1',
-};
