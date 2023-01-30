@@ -1,4 +1,4 @@
-import { filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from './data.js';
+import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from './data.js';
 import rickandmorty from './data/rickandmorty/rickandmorty.js';
 
 // Data Rick and Morty
