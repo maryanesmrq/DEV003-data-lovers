@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /* Inicio  */
+
+
 html,
 body {
   height: 100%;
@@ -140,7 +142,7 @@ nav {
 }
 
 .card {
-  background-color: #00ff2a;
+  background-color: #ceddd1;
   width: 250px;
   display: flex;
   flex-direction: column;
