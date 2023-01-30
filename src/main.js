@@ -1,6 +1,5 @@
-import { filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search } from './data.js';
+import { filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from './data.js';
 import rickandmorty from './data/rickandmorty/rickandmorty.js';
-
 
 // Data Rick and Morty
 const data = rickandmorty.results;
@@ -27,11 +26,11 @@ const templateTarjeta = (x) => {
   })
   const dataSort = x;
   sortOption.addEventListener("click", () => {
-    if (sortOption.value == "name") {
+    if (sortOption.value === "name") {
       containerData.innerHTML = ""
       return templateTarjeta(ordenAZ(dataSort));
     }
-    else if (sortOption.value == "nameZ") {
+    else if (sortOption.value === "nameZ") {
       containerData.innerHTML = ""
       return templateTarjeta(ordenZA(dataSort));
     }
@@ -39,13 +38,13 @@ const templateTarjeta = (x) => {
   });
 };
 // Define función de búsqueda de personajes por nombre. Depende de data ingresada.
-const searchInput = (x) => {
-  searchCharacters.addEventListener('keyup', () => {
-    const dataPersonajes = buscar(x, 'name', searchCharacters.value);
-    containerData.innerHTML = "";
-    return templateTarjeta(dataPersonajes);
-  });
-};
+// const searchInput = (x) => {
+//   searchCharacters.addEventListener('keyup', () => {
+//     const dataPersonajes = buscar(x, 'name', searchCharacters.value);
+//     containerData.innerHTML = "";
+//     return templateTarjeta(dataPersonajes);
+//   });
+// };
 // clear button
 templateTarjeta(data);
 clearButton.addEventListener("click", () => {
@@ -77,9 +76,10 @@ filterOptionGender.addEventListener("click", () => {
     templateTarjeta(dataFiltrada);
     break;
   }
-  // Función buscar en input por dataFiltrada
-  searchInput(dataFiltrada);
 });
+// Función buscar en input por dataFiltrada
+//   searchInput(dataFiltrada);
+// });
 
 //funcion filtrado por Species
 filterOptionSpecies.addEventListener("click", () => {
@@ -138,9 +138,10 @@ filterOptionSpecies.addEventListener("click", () => {
     templateTarjeta(dataFiltrada);
     break;
   }
-  // Función buscar en input por dataFiltrada
-  searchInput(dataFiltrada);
 });
+// Función buscar en input por dataFiltrada
+//   searchInput(dataFiltrada);
+// });
 
 //funcion filtrado por Status
 filterOptionStatus.addEventListener("change", () => {
@@ -163,9 +164,10 @@ filterOptionStatus.addEventListener("change", () => {
     templateTarjeta(dataFiltrada);
     break;
   }
-  // Función buscar en input por dataFiltrada
-  searchInput(dataFiltrada);
 });
+// Función buscar en input por dataFiltrada
+//   searchInput(dataFiltrada);
+// });
 
 //Search
 searchCharacters.addEventListener('keyup', () => {
@@ -173,26 +175,3 @@ searchCharacters.addEventListener('keyup', () => {
   containerData.innerHTML = "";
   templateTarjeta(dataPersonajes);
 });
-
-// Modal inicio
-// const modal = document.getElementById("myModal");
-// const btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// Usuario hace click y modal se abre
-// btn.onclick = function () {
-//     modal.style.display = "block";
-
-// Usuario hace click en <span> (x), modal se cierra
-// span.onclick = function () {
-//     modal.style.display = "none";
-// };
-// Usuario hace click fuera del modal, modal se cierra
-// window.onclick = function (event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// };
-
