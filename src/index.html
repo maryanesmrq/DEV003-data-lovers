@@ -10,7 +10,7 @@
 </head>
 <!-- agregar bienvenida -->
 <body>
-  <!--Inicio menu-->
+  <!--Welcome menu-->
   <div id="container-mobile">
     <input type="checkbox" id="inMenu">
     <label class="iconoMenu" for="inMenu"><i class="fa-solid fa-bars"></i></label>
@@ -24,6 +24,7 @@
         <option value="unknown">Unknown</option>
       </optgroup>
     </select>
+
     <select name="Status" id="filterStatus">
       <optgroup label="Status">
         <option value="all">All Status</option>
@@ -32,6 +33,7 @@
         <option value="unknown">Unknown</option>
       </optgroup>
     </select>
+
     <select name="Species" id="filterSpecies">
       <optgroup label="Species">
         <option value="all">All Species</option>
@@ -49,22 +51,16 @@
         <option value="Vampire">Vampire</option>
       </optgroup>
     </select>
+
     <button id="clear-button">Clear Filter</button>
   </div>
-<!--Fin menu-->
+<!--End welcome menu-->
 
   <div class="container">
-    <!--Inicio menú categorías, search y sort-->
+    <!--Container characters-->
     <div class="category" id="category">
-
       <div class="section-title">
         <h2>CHARACTERS</h2>
-
-        <!-- <div class="seccion-botones">
-          <div class="search">
-            <h3>Search</h3>
-            <input id="buscar" type="text" placeholder="Search your character!">
-           </div> --> 
 
           <div class="filter-data">
             <h3>Order the characters</h3>
@@ -78,22 +74,15 @@
           </div>
       </div>
     </div>
-    <!--Fin menú categorías, search y sort-->
 
-    <!--Inicio sección cards de personajes-->
-
+    <!--Cards section-->
     <div class="cards" id="cards">
       <article class="card"></article>
       <div class="card-1">
       </div>
     </div>
-    <!--Fin sección cards de personajes-->
   </div>
 
   <script src="main.js" type="module"></script>
 </body>
-
 </html>
-
-
-

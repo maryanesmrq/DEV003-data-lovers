@@ -45,10 +45,4 @@ export const ordenZA = (dataFilter) => {
   return sortOrdenZA;
 };
 
-//Search
-export const search = (data, condition, value) => {
-  return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
-};
-
-
 

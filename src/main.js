@@ -1,4 +1,4 @@
-import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA, search} from './data.js';
+import {filterGender, filterStatus, filterSpecies, ordenAZ, ordenZA} from './data.js';
 import rickandmorty from './data/rickandmorty/rickandmorty.js';
 
 // Data Rick and Morty
@@ -10,10 +10,9 @@ const sortOption = document.getElementById("sort");
 const filterOptionStatus = document.getElementById("filterStatus");
 const filterOptionGender = document.getElementById("filterGender");
 const filterOptionSpecies = document.getElementById("filterSpecies");
-const searchCharacters = document.querySelector("#search");
 const clearButton = document.getElementById("clear-button");
 
-// Template de cards personajes en container, muestra las cards en la interfaz e incluye método de ordenar AZ-ZA. Depende de la data ingresada.
+// Character template cards container and sort by A-Z and Z-A.
 const templateTarjeta = (x) => {
   x.forEach((results) => {
     const info = `<div class="card"><img src="${results.image}">
@@ -37,21 +36,14 @@ const templateTarjeta = (x) => {
 
   });
 };
-// Define función de búsqueda de personajes por nombre. Depende de data ingresada.
-// const searchInput = (x) => {
-//   searchCharacters.addEventListener('keyup', () => {
-//     const dataPersonajes = buscar(x, 'name', searchCharacters.value);
-//     containerData.innerHTML = "";
-//     return templateTarjeta(dataPersonajes);
-//   });
-// };
+
 // clear button
 templateTarjeta(data);
 clearButton.addEventListener("click", () => {
   return window.location.reload();
 });
 
-//funcion filtrado por Gender
+//Filter by gender function
 filterOptionGender.addEventListener("click", () => {
   let dataFiltrada;
   switch (filterOptionGender.value) {
@@ -77,11 +69,11 @@ filterOptionGender.addEventListener("click", () => {
     break;
   }
 });
-// Función buscar en input por dataFiltrada
+// Search function inside filterByGender
 //   searchInput(dataFiltrada);
 // });
 
-//funcion filtrado por Species
+//Filter by species function
 filterOptionSpecies.addEventListener("click", () => {
   let dataFiltrada;
   switch (filterOptionSpecies.value) {
@@ -139,11 +131,11 @@ filterOptionSpecies.addEventListener("click", () => {
     break;
   }
 });
-// Función buscar en input por dataFiltrada
+// Seach function inside filterSpecies
 //   searchInput(dataFiltrada);
 // });
 
-//funcion filtrado por Status
+//Filter by status function
 filterOptionStatus.addEventListener("change", () => {
   let dataFiltrada;
   switch (filterOptionStatus.value) {
@@ -165,13 +157,7 @@ filterOptionStatus.addEventListener("change", () => {
     break;
   }
 });
-// Función buscar en input por dataFiltrada
+// Search function inside filterStatus
 //   searchInput(dataFiltrada);
 // });
 
-//Search
-searchCharacters.addEventListener('keyup', () => {
-  const dataPersonajes = search(data, 'name', searchCharacters.value);
-  containerData.innerHTML = "";
-  templateTarjeta(dataPersonajes);
-});
