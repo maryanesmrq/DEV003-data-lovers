@@ -19,13 +19,19 @@ export const filterSpecies = (data, species) => {
 // Export order A-Z ascendent
 export const ordenAZ = (dataFilter) => {
   const sortOrdenAZ =  dataFilter.sort(function (a, b) {
-    if (a.name < b.name) {
+    if (a.name[0] > b.name[0]) {
       return 1;
     }
-    if (a.name > b.name) {
+    if (a.name[0] < b.name[0]) {
       return -1;
     }
-    //return 0;
+    if (a.name[1] > b.name[1]) {
+      return 1;
+    }
+    if (a.name[1] < b.name[1]) {
+      return -1;
+    }
+    return 0;
   })
   return sortOrdenAZ;
 };
@@ -33,14 +39,19 @@ export const ordenAZ = (dataFilter) => {
 // Export order A-Z descendent
 export const ordenZA = (dataFilter) => {
   const sortOrdenZA =  dataFilter.sort(function (a, b) {
-    if (a.name > b.name) {
+    if (a.name[0] < b.name[0]) {
       return 1;
     }
-    if (a.name < b.name) {
+    if (a.name[0] > b.name[0]) {
       return -1;
+    } 
+    if (a.name[1] < b.name[1]) {
+      return 1;
     }
-    //return 0;
- 
+    if (a.name[1] > b.name[1]) {
+      return -1;
+    } 
+    return 0;
   })
   return sortOrdenZA;
 };

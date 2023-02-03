@@ -87,13 +87,13 @@ describe('filterSpecies', () => {
   });
 });
 
-describe('ordenZA', () => {
+describe('ordenAZ', () => {
   it('is a function', () => {
-    expect(typeof ordenZA).toBe('function');
+    expect(typeof ordenAZ).toBe('function');
   });
 
   it('returns true if the ordenAZ() function orders name from A to Z', () => {
-    expect(ordenZA(data)).toStrictEqual([
+    expect(ordenAZ(data)).toEqual([
       {
         "id": 8,
         "name": 'Adjudicator Rick',
@@ -125,13 +125,13 @@ describe('ordenZA', () => {
   });
 });
 
-describe('ordenAZ', () => {
+describe('ordenZA', () => {
   it('is a function', () => {
-    expect(typeof ordenAZ).toBe('function');
+    expect(typeof ordenZA).toBe('function');
   });
 
   it('returns true if the ordenZA() function orders name from Z to A', () => {
-    expect(ordenAZ(data)).toStrictEqual([ 
+    expect(ordenZA(data)).toStrictEqual([ 
       {
         "id": 41,
         "name": 'Big Boobed Waitress',
