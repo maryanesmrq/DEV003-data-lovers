@@ -33,7 +33,6 @@ const templateTarjeta = (x) => {
       containerData.innerHTML = ""
       return templateTarjeta(ordenZA(dataSort));
     }
-
   });
 };
 
